@@ -1,0 +1,92 @@
+# Stockvision
+Stock Price Prediction Using LSTM
+Project Overview
+This project focuses on stock price prediction using LSTM (Long Short-Term Memory) models. The workflow includes:
+Fetching stock data from the Alpha Vantage API
+Processing the data with PySpark
+Visualizing historical trends and model performance
+Predicting future stock prices based on historical data
+
+Tech Stack
+Python 
+Pandas & NumPy 
+PySpark 
+TensorFlow/Keras 
+Matplotlib 
+Alpha Vantage API 
+
+ stock-price-prediction  
+ ├── data_fetch.py          # Fetches stock data from Alpha Vantage API  
+ ├── data_processing.py     # Cleans and processes the stock data using PySpark  
+ ├── dashboard.py           # (To be implemented) Dashboard for visualizing data  
+ ├── prediction.py          # LSTM model-based stock price prediction  
+ ├── visuals.py             # Visualization of actual vs. predicted prices  
+ ├── README.md              # Project documentation  
+ ├── lstm_nvda_model.h5     # Trained LSTM model  
+ ├── NVDA_daily_stock_data.csv # Fetched stock data  
+ ├── predicted_prices.csv   # Predicted stock prices for the next week  
+
+ Installation & Setup
+ Clone the Repository
+
+git clone https://github.com/your-username/stock-price-prediction.git
+cd stock-price-prediction
+ Install Dependencies
+
+pip install -r requirements.txt
+(Ensure you have TensorFlow, Pandas, NumPy, Matplotlib, and PySpark installed.)
+
+ Run the Scripts
+ Fetch Stock Data:
+
+
+python data_fetch.py
+ Process Data:
+
+python data_processing.py
+Run Predictions:
+
+
+python prediction.py
+Visualize Results:
+
+
+python visuals.py
+How It Works
+Data Fetching (data_fetch.py)
+Fetches stock data from Alpha Vantage API
+Saves it as a CSV file
+Data Cleaning (data_processing.py)
+Uses PySpark to remove null values
+Saves the cleaned dataset
+Prediction (prediction.py)
+Loads the LSTM model (lstm_nvda_model.h5)
+Uses the past 60 days of data to predict the next 7 days
+Saves predictions as predicted_prices.csv
+Visualization (visuals.py)
+Plots actual vs. predicted prices
+Computes error metrics (MSE, MAE, RMSE)
+Displays moving averages (50-day & 200-day)
+Sample Prediction Output
+Metrics:
+
+mathematics
+
+Mean Squared Error (MSE): 2.34  
+Mean Absolute Error (MAE): 1.23  
+Root Mean Squared Error (RMSE): 1.53  
+Next 7-Day Predictions (Sample Output):
+
+Date	Predicted Price ($)
+2025-02-13	800.5
+2025-02-14	810.2
+2025-02-15	820.7
+Graphical Output
+Stock prices with moving averages
+Prediction errors visualization
+
+Future Enhancements
+Interactive Dashboard (Streamlit or Flask)
+Multiple Stock Symbols support
+Hyperparameter Tuning for improved predictions
+
